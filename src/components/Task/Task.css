@@ -1,0 +1,178 @@
+/* TASK LIST */
+.container {
+	height: calc(100% - 210px);
+	/* border: 1px solid black; */
+	padding: 0.5rem;
+	display: flex;
+	flex-direction: column;
+}
+.task-list {
+	display: grid;
+	gap: 0.5rem;
+	margin-bottom: 1rem;
+	overflow: scroll;
+}
+
+.btn-primary {
+	margin: auto 1rem 0; padding: 1rem;
+	text-align: center;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 1.35rem;
+	font-weight: 600;
+	border-radius: 10px;
+	cursor: pointer;
+	border: 2px solid hsl(50, 80%, 70%);
+	background-color: hsl(50, 80%, 70%);
+}
+
+.btn-primary:hover {
+	border: 2px solid hsl(50, 70%, 75%);
+	background-color: hsl(50, 70%, 75%);
+	box-shadow: 0px 0px 3px black, 0px 0px 10px black;
+}
+
+.btn {
+	margin: 0; padding: 0;
+	background: none; border: none;
+	font-size: 1.5rem;
+}
+
+/* TASK CARD */
+.task-card {
+	box-sizing: border-box;
+	/* margin: 0 1rem; */
+	border: 2px solid var(--primary);
+	border-radius: 10px;
+	box-shadow: 0px 0px 8px var(--primary), 0px 0px 3px var(--primary);
+}
+
+/* TASK HEADER */
+.task__header {
+	border-radius: 10px 10px 5px 5px;
+	padding: 0.5rem;
+	font-size: 1.5rem;
+	display: flex;
+	justify-content: space-between;
+
+	background: linear-gradient(90deg, 
+														var(--bg-secondary),
+														var(--bg-primary) 15% 65%,
+														var(--bg-secondary) );
+}
+
+.task__header-title {
+	display: flex;
+	align-items: center;
+	font-family: 'Ubuntu', sans-serif;
+	font-weight: 600;
+}
+
+.due-date {
+	color: var(--primary);
+}
+
+.task__header .icon {
+	padding: 0.5rem;
+	border-radius: 10px;
+	cursor: pointer;
+	color: var(--primary);
+}
+
+.task__header .icon:hover { background-color: var(--bg-primary); }
+
+
+/* Task BODY */
+.task__details {
+	background: linear-gradient(90deg, 
+														var(--bg-secondary),
+														var(--bg-primary) 15% 65%,
+														var(--bg-secondary) );
+
+	padding: 1rem 0.5rem 0.75rem;
+	border-radius: 0px 0px 10px 10px;
+
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	gap: 0.5rem;
+}
+
+.task__details > fieldset {
+	max-width: 100%;
+	align-self: end;
+	background-color: var(--bg-secondary);
+	border: 1px solid var(--primary);
+	border-radius: 10px;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 0.75rem;
+	display: flex;
+	flex-direction: column;
+}
+
+.task__details > fieldset:has(input:focus),
+.task__details > fieldset:has(textarea:focus)
+ {
+	border: 2px solid var(--primary);
+	color: var(--primary);
+	background-color: var(--bg-secondary);
+}
+
+.task__details label {
+	margin-left: 0.25rem;
+	order: 1;
+	display: none;
+	transition: display 1s ease;
+}
+
+.task__details input,
+.task__details textarea {
+	background-color: var(--bg-secondary);
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 1rem;
+	order: 2;
+	border: none;
+}
+
+.task__details input:focus,
+.task__details textarea:focus {
+	outline: none;
+	background-color: var(--bg-secondary);
+}
+
+.task__details input:focus ~ label,
+.task__details textarea:focus ~ label {
+	display: block;
+	font-weight: 600;
+}
+
+.task__details input:focus::placeholder,
+.task__details textarea:focus::placeholder {
+  color: transparent;
+}
+
+.task__details-description {
+	grid-column: 1 / -1;
+}
+
+
+.submit-button {
+	grid-column: 1/-1;
+	padding: 0.5rem;
+	text-align: center;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 1.25rem;
+	border-radius: 10px;
+	cursor: pointer;
+	border: 2px solid hsl(50, 80%, 70%);
+	background-color: hsl(50, 80%, 70%);
+}
+
+.submit-button span {
+	font-size: 1rem;
+	font-weight: 700;
+}
+
+.submit-button:hover {
+	border: 2px solid hsl(50, 70%, 75%);
+	background-color: hsl(50, 70%, 75%);
+	box-shadow: 0px 0px 3px black, 0px 0px 10px black;
+}

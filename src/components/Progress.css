@@ -1,0 +1,66 @@
+.radial-progress {
+	--st-p: 260;
+	--perc: 1;
+
+	height: 140px; width: 250px;
+	/* border: 3px solid red; */
+	position: relative;
+	overflow: hidden;
+	margin: auto;
+}
+
+.progress-bar {
+  /* display: flex;
+	flex-direction: column;
+  justify-content: start;
+  align-items: center; */
+	position: relative;
+
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 1.35rem;
+	font-weight: 600;
+	line-height: 2.5rem;
+
+	--start-pnt: calc(var(--st-p) * 1deg);
+	--indent: 0deg;
+	--first-end: calc(var(--perc-1) * 200deg - var(--indent));
+	--second-end: calc(var(--first-end) + var(--perc-2) * 200deg - var(--indent));
+	--end-pnt: calc(200deg - var(--indent));
+
+	--done-deg: calc(var(--end-pnt) * var(--done));
+	--miss-deg: calc(var(--done-deg) + var(--end-pnt) * var(--miss));
+
+  background: 
+    radial-gradient(closest-side, 
+										hsl(220, 75%, 90%) 70%, 
+										transparent 71% 96%, 
+										hsl(220, 75%, 90%) 97% 100%),
+    conic-gradient(from var(--start-pnt), 
+									 hsl(115, 50%, 35%) var(--done-deg),
+									 hsl(0, 60%, 45%) var(--done-deg) var(--miss-deg),
+									 hsl(220, 45%, 70%) var(--miss-deg) 200deg,
+									 hsl(220, 70%, 60%) var(--end-pnt) calc(var(--st-p) * 1deg)); 
+	/* border: 1px solid black; */
+}
+
+.done-text {
+	width: max-content;
+	color: hsl(115, 50%, 35%);
+	position: absolute;
+	top: 25%; left: 50%;
+	transform: translateX(-50%);
+	/* border: 1px solid black; */
+}
+
+.missed-text {
+	width: max-content;
+	color: hsl(0, 60%, 45%);
+	position: absolute;
+	top: 40%; left: 50%;
+	transform: translateX(-50%);
+	/* border: 1px solid black; */
+}

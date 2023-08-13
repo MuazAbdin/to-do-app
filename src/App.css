@@ -1,38 +1,90 @@
-.App {
-  text-align: center;
+main {
+	height: calc(100% - 172px);
+  overflow: scroll;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app-header {
+	padding: 1.5rem;
+	font-family: 'Ubuntu', sans-serif;
+	font-weight: 700;
+	font-size: 4rem;
+	text-align: center;
+	text-shadow: 1px 1px 5px gray;
+	
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.app-footer {
+	padding: 1rem;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 1rem;
+	text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.banner {
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	padding: 1rem 2rem 0;
+
 }
 
-.App-link {
-  color: #61dafb;
+.container-new-task {
+	padding: 0 2rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* ADD NEW TASK */
+.icon-add {
+	font-size: 1.25rem;
+	margin-right: 1rem;
+	padding: 0.75rem;
+	cursor: pointer;
+	color: var(--primary);
+	background: linear-gradient(90deg, 
+															var(--bg-secondary) 20%,
+															var(--bg-primary) );
+}
+
+.icon-add:hover { background: var(--hover); }
+
+
+/* SEARCH */
+.search-field {
+	flex-grow: 2;
+	margin: 0; padding: 0;
+	background-color: var(--bg-secondary);
+	border: 1px solid var(--primary);
+	border-radius: 50px;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 0.75rem;
+	display: flex;
+	align-items: center;
+}
+
+.search-field:has(input:focus)
+ {
+	border: 2px solid hsl(240, 100%, 60%);
+	background-color: var(--bg-secondary);
+}
+
+
+.search-icon {
+	font-size: 1.35rem;
+	padding: 0.25rem 0.75rem;
+	/* border: 1px solid var(--primary); */
+	border-radius: 50px 0 0 50px;
+}
+
+#search-tasks {
+	width: 100%;
+	padding: 0.25rem 0.75rem;
+	background-color: var(--bg-secondary);
+	border: none;
+	border-radius: 0 50px 50px 0;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 1.25rem;
+}
+
+#search-tasks:focus
+ {
+	outline: none;
 }

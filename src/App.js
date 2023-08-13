@@ -1,24 +1,47 @@
-import logo from './logo.svg';
+import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { AppProvider } from './context/AppContext';
+import { colors, createNewTask } from './utils';
+import Progress from './components/Progress';
+import Search from './components/Search';
+import TaskList from './components/Task/TaskList';
+import TaskBody from './components/Task/TaskBody';
 import './App.css';
 
+
 function App() {
+  const [showNew, setShowNew] = useState(false);
+  const onClickNew = () => {setShowNew(curVal => !curVal)};
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <AppProvider>
+      <header className='app-header'>
+        To-do App
       </header>
-    </div>
+      <main>
+        <Progress/>
+        <div className='banner' style={ colors['newTask'] }>
+          <FontAwesomeIcon icon={faPlus} className='icon-add' onClick={onClickNew}
+                            style={ showNew ? {borderRadius: '10px 10px 0 0'} : 
+                                              {borderRadius: '10px'}}/>
+          <Search />
+        </div>
+        <div className='container-new-task'>
+          { showNew && <TaskBody style={ colors['newTask'] } 
+                                 task={createNewTask()}
+                                 onSubmit={setShowNew} />}
+        </div>
+        <TaskList />
+      </main>
+      <footer className='app-footer'>
+        <span>
+          © 2023 &nbsp;<b>Muaz Abdeen</b> - All Rights Reserved.
+        </span>
+      </footer>
+      
+
+    </AppProvider>
   );
 }
 
